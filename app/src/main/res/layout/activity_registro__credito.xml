@@ -34,7 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="@string/credito"
             android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,10 +47,8 @@
             android:layout_width="93dp"
             android:layout_height="22dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
             android:text="@string/monto"
-            app:layout_constraintEnd_toEndOf="@+id/TVCliente"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TVCliente" />
 
@@ -58,17 +56,16 @@
             android:id="@+id/TVInteres"
             android:layout_width="75dp"
             android:layout_height="22dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/interes"
-            app:layout_constraintStart_toEndOf="@+id/TVMonto"
+            app:layout_constraintStart_toEndOf="@+id/TVCliente"
             app:layout_constraintTop_toBottomOf="@+id/TVCliente" />
 
         <TextView
             android:id="@+id/TVPlazo"
             android:layout_width="55dp"
             android:layout_height="22dp"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:text="@string/plazo"
@@ -76,14 +73,139 @@
             app:layout_constraintStart_toEndOf="@+id/TVInteres"
             app:layout_constraintTop_toBottomOf="@+id/TVCliente" />
 
+        <EditText
+            android:id="@+id/ETMonton"
+            android:layout_width="110dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toStartOf="@+id/TVInteres"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVMonto" />
+
+        <Spinner
+            android:id="@+id/SAinteres"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
+            android:entries="@array/ainteres"
+            app:layout_constraintBottom_toBottomOf="@+id/ETMonton"
+            app:layout_constraintEnd_toStartOf="@+id/TVPlazo"
+            app:layout_constraintStart_toStartOf="@+id/TVInteres"
+            app:layout_constraintTop_toBottomOf="@+id/TVInteres" />
+
+        <EditText
+            android:id="@+id/ETPlazo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/TVPlazo"
+            app:layout_constraintTop_toBottomOf="@+id/TVPlazo" />
+
+        <TextView
+            android:id="@+id/TVFechaInicio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/fecha"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ETMonton" />
+
+        <TextView
+            android:id="@+id/TVFechaInicialM"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVFechaInicio" />
+
+        <TextView
+            android:id="@+id/TVFechaFin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/fechafin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVFechaInicialM" />
+
+        <TextView
+            android:id="@+id/TVFechaFinM"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVFechaFin" />
+
+        <TextView
+            android:id="@+id/TVMontopagar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/Pagar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVFechaFinM" />
+
+        <TextView
+            android:id="@+id/TVMontoPagarM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:textColor="#03A9F4"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/TVMontomes"
+            app:layout_constraintTop_toBottomOf="@+id/TVFechaFinM" />
+
+        <TextView
+            android:id="@+id/TVMontomes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/cuota"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVMontopagar" />
+
+        <TextView
+            android:id="@+id/TVMontomesM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:textColor="#03A9F4"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/TVMontomes"
+            app:layout_constraintTop_toBottomOf="@+id/TVMontoPagarM" />
+
         <Button
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/continuar"
+            android:text="@string/fin"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVMontomesM" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

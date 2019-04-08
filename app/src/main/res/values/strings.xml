@@ -27,4 +27,5 @@
         <item>20</item>
         <item>25</item>
     </string-array>
+    <string name="fin">Finalizar</string>
 </resources>
