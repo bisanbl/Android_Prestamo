@@ -47,15 +47,18 @@ public class Registro_Credito extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus){
 
-                    if (!TextUtils.isEmpty(ETplazo.getText().toString())) {
+                    if (!TextUtils.isEmpty(ETplazo.getText().toString()) && !TextUtils.isEmpty(ETmonto.getText().toString())) {
                         //Recibimos la Fecha Actual y la enviamos a la funcion sumarMeses que retorna la fecha con los meses agregados
                         // Se formatea "dd-MM-yyyy" y se muestra en pantalla
                         TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
                         TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
                        TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
-                    }else
-                        return;
+                    }else{
+                        TVmes.setText(" ");
+                        TVmonto.setText(" ");
+                    }
+
                 }else
                     return;
 
@@ -76,15 +79,17 @@ public class Registro_Credito extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-                if (!TextUtils.isEmpty(ETplazo.getText().toString())) {
+                if (!TextUtils.isEmpty(ETplazo.getText().toString()) && !TextUtils.isEmpty(ETmonto.getText().toString())) {
                     //Recibimos la Fecha Actual y la enviamos a la funcion sumarMeses que retorna la fecha con los meses agregados
                     // Se formatea "dd-MM-yyyy" y se muestra en pantalla
                     TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
                     TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
                     TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
-                }else
-                    return;
+                }else{
+                    TVmes.setText(" ");
+                    TVmonto.setText(" ");
+                }
             }
         });
 
@@ -101,15 +106,17 @@ public class Registro_Credito extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (!TextUtils.isEmpty(ETplazo.getText().toString())) {
+                if (!TextUtils.isEmpty(ETplazo.getText().toString()) && !TextUtils.isEmpty(ETmonto.getText().toString())) {
                     //Recibimos la Fecha Actual y la enviamos a la funcion sumarMeses que retorna la fecha con los meses agregados
                     // Se formatea "dd-MM-yyyy" y se muestra en pantalla
                     TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
                     TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
                     TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
-                }else
-                    return;
+                }else{
+                    TVmes.setText(" ");
+                    TVmonto.setText(" ");
+                }
             }
         });
 
@@ -118,15 +125,17 @@ public class Registro_Credito extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus){
 
-                    if (!TextUtils.isEmpty(ETplazo.getText().toString())) {
+                    if (!TextUtils.isEmpty(ETplazo.getText().toString()) && !TextUtils.isEmpty(ETmonto.getText().toString())) {
                         //Recibimos la Fecha Actual y la enviamos a la funcion sumarMeses que retorna la fecha con los meses agregados
                         // Se formatea "dd-MM-yyyy" y se muestra en pantalla
                         TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
                         TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
                         TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
-                    }else
-                        return;
+                    }else{
+                        TVmes.setText(" ");
+                        TVmonto.setText(" ");
+                    }
                 }else
                     return;
             }
@@ -135,15 +144,17 @@ public class Registro_Credito extends AppCompatActivity {
         Sainteres.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (!TextUtils.isEmpty(ETplazo.getText().toString())) {
+                if (!TextUtils.isEmpty(ETplazo.getText().toString()) && !TextUtils.isEmpty(ETmonto.getText().toString())) {
                     //Recibimos la Fecha Actual y la enviamos a la funcion sumarMeses que retorna la fecha con los meses agregados
                     // Se formatea "dd-MM-yyyy" y se muestra en pantalla
                     TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
                     TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
                     TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
-                }else
-                    return;
+                }else{
+                    TVmes.setText(" ");
+                    TVmonto.setText(" ");
+                }
             }
 
             @Override
