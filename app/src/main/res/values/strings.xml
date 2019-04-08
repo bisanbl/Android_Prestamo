@@ -3,15 +3,28 @@
     <string name="solicitud">Solicitud de Prestamo</string>
     <string name="cliente">Registro de Cliente</string>
     <string name="credito">Registro de Credito</string>
-    <string name="nombre">Nombre</string>
+    <string name="nombre">Nombre*</string>
     <string name="apellido">Apellido</string>
     <string name="sexo">Sexo</string>
-    <string name="telefono">Telefono</string>
+    <string name="telefono">Telefono*</string>
     <string-array name="asexo">
         <item>Femenino</item>
-        <item>Masculino</item></string-array>
-    <string name="cedula">Cedula</string>
+        <item>Masculino</item>
+    </string-array>
+    <string name="cedula">Cedula*</string>
     <string name="ocupacion">Ocupacion</string>
-    <string name="direccion">Direccion</string>
+    <string name="direccion">Direccion*</string>
     <string name="continuar">Continuar</string>
+    <string name="monto">Monto Credito</string>
+    <string name="interes">Interes (%)</string>
+    <string name="plazo">Plazo</string>
+    <string name="fecha">Fecha</string>
+    <string name="fechafin">Fecha Finalizacion</string>
+    <string name="Pagar">Monto a Pagar:</string>
+    <string name="cuota">Monto por Cuota:</string>
+    <string-array name="ainteres">
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
 </resources>
