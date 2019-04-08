@@ -28,4 +28,5 @@
         <item>25</item>
     </string-array>
     <string name="fin">Finalizar</string>
+    <string name="Error">ERROR!! Campo no puede quedar vacio</string>
 </resources>
