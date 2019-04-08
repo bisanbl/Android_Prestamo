@@ -53,7 +53,7 @@ public class Registro_Credito extends AppCompatActivity {
                         TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
                         TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
-                       TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
+                       TVmes.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres) / Integer.parseInt(ETplazo.getText().toString())));
                     }else{
                         TVmes.setText(" ");
                         TVmonto.setText(" ");
@@ -85,7 +85,7 @@ public class Registro_Credito extends AppCompatActivity {
                     TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
                     TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
-                    TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
+                    TVmes.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres) / Integer.parseInt(ETplazo.getText().toString())));
                 }else{
                     TVmes.setText(" ");
                     TVmonto.setText(" ");
@@ -112,7 +112,7 @@ public class Registro_Credito extends AppCompatActivity {
                     TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
                     TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
-                    TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
+                    TVmes.setText(dosDecimales.format( total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)/ Integer.parseInt(ETplazo.getText().toString())));
                 }else{
                     TVmes.setText(" ");
                     TVmonto.setText(" ");
@@ -131,7 +131,7 @@ public class Registro_Credito extends AppCompatActivity {
                         TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
                         TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
-                        TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
+                        TVmes.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)/ Integer.parseInt(ETplazo.getText().toString())));
                     }else{
                         TVmes.setText(" ");
                         TVmonto.setText(" ");
@@ -150,7 +150,7 @@ public class Registro_Credito extends AppCompatActivity {
                     TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
                     TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
-                    TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
+                    TVmes.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)/ Integer.parseInt(ETplazo.getText().toString())));
                 }else{
                     TVmes.setText(" ");
                     TVmonto.setText(" ");
@@ -185,6 +185,7 @@ public class Registro_Credito extends AppCompatActivity {
 
         return 0;
     }
+
     public Date sumarMeses(Date fecha, int meses){
 
         Calendar calendar = Calendar.getInstance();
