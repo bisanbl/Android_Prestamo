@@ -30,4 +30,5 @@
     <string name="fin">Finalizar</string>
     <string name="Error">ERROR!! Campo no puede quedar vacio</string>
     <string name="ErrorBTN">ERROR!! Algunos Campos requeridos estan Vacios</string>
+    <string name="gracias">Gracias!!</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.bisanbl.prestamo;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -8,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -34,11 +36,11 @@ public class Registro_Credito extends AppCompatActivity {
         final EditText ETmonto = findViewById(R.id.ETMonton);
         final Spinner Sainteres = findViewById(R.id.SAinteres);
 
-        final float total = 0;
-
         final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         final DecimalFormat dosDecimales = new DecimalFormat("0.##");
         final Date date = new Date();
+
+        Button BTNfinalizar = findViewById(R.id.BTNFinalizar);
 
         TVfechainicial.setText(dateFormat.format(date));
 
@@ -57,6 +59,7 @@ public class Registro_Credito extends AppCompatActivity {
                     }else{
                         TVmes.setText(" ");
                         TVmonto.setText(" ");
+                        TVfechafin.setText(" ");
                     }
 
                 }else
@@ -89,6 +92,7 @@ public class Registro_Credito extends AppCompatActivity {
                 }else{
                     TVmes.setText(" ");
                     TVmonto.setText(" ");
+                    TVfechafin.setText(" ");
                 }
             }
         });
@@ -116,6 +120,7 @@ public class Registro_Credito extends AppCompatActivity {
                 }else{
                     TVmes.setText(" ");
                     TVmonto.setText(" ");
+                    TVfechafin.setText(" ");
                 }
             }
         });
@@ -135,6 +140,7 @@ public class Registro_Credito extends AppCompatActivity {
                     }else{
                         TVmes.setText(" ");
                         TVmonto.setText(" ");
+                        TVfechafin.setText(" ");
                     }
                 }else
                     return;
@@ -154,6 +160,7 @@ public class Registro_Credito extends AppCompatActivity {
                 }else{
                     TVmes.setText(" ");
                     TVmonto.setText(" ");
+                    TVfechafin.setText(" ");
                 }
             }
 
@@ -163,6 +170,16 @@ public class Registro_Credito extends AppCompatActivity {
             }
         });
 
+
+        BTNfinalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!TextUtils.isEmpty(TVfechafin.getText().toString()))
+                Snackbar.make(v, getResources().getString(R.string.gracias),Snackbar.LENGTH_LONG).show();
+                else
+                    Snackbar.make(v, getResources().getString(R.string.ErrorBTN),Snackbar.LENGTH_LONG).show();
+            }
+        });
 
     }
 

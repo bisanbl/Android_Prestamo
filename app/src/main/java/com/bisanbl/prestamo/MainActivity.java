@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validarActivity(EditText ETnombre, EditText ETdireccion, EditText ETTelefono, EditText ETcedula){
-        if (TextUtils.isEmpty(ETnombre.getText().toString()) || TextUtils.isEmpty(ETdireccion.getText().toString())){
-            if (TextUtils.isEmpty(ETTelefono.getText().toString()) || TextUtils.isEmpty(ETcedula.getText().toString())) {
+        if (!TextUtils.isEmpty(ETnombre.getText().toString()) || !TextUtils.isEmpty(ETdireccion.getText().toString())){
+            if (!TextUtils.isEmpty(ETTelefono.getText().toString()) || !TextUtils.isEmpty(ETcedula.getText().toString())) {
                 return true;
             }
         }
