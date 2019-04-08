@@ -52,8 +52,8 @@ public class Registro_Credito extends AppCompatActivity {
                         // Se formatea "dd-MM-yyyy" y se muestra en pantalla
                         TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
-                        TVmonto.setText(dosDecimales.format( Double.toString(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres))));
-                        TVmes.setText(dosDecimales.format( Double.toString(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString()))));
+                        TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
+                       TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
                     }else
                         return;
                 }else
@@ -81,8 +81,8 @@ public class Registro_Credito extends AppCompatActivity {
                     // Se formatea "dd-MM-yyyy" y se muestra en pantalla
                     TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
-                    TVmonto.setText(dosDecimales.format( Double.toString(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres))));
-                    TVmes.setText(dosDecimales.format( Double.toString(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString()))));
+                    TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
+                    TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
                 }else
                     return;
             }
@@ -106,8 +106,8 @@ public class Registro_Credito extends AppCompatActivity {
                     // Se formatea "dd-MM-yyyy" y se muestra en pantalla
                     TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
-                    TVmonto.setText(dosDecimales.format( Double.toString(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres))));
-                    TVmes.setText(dosDecimales.format( Double.toString(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString()))));
+                    TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
+                    TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
                 }else
                     return;
             }
@@ -123,8 +123,8 @@ public class Registro_Credito extends AppCompatActivity {
                         // Se formatea "dd-MM-yyyy" y se muestra en pantalla
                         TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
-                        TVmonto.setText(dosDecimales.format( Double.toString(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres))));
-                        TVmes.setText(dosDecimales.format( Double.toString(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString()))));
+                        TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
+                        TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
                     }else
                         return;
                 }else
@@ -140,8 +140,8 @@ public class Registro_Credito extends AppCompatActivity {
                     // Se formatea "dd-MM-yyyy" y se muestra en pantalla
                     TVfechafin.setText(dateFormat.format(sumarMeses(date, Integer.parseInt(ETplazo.getText().toString()))));
 
-                    TVmonto.setText(dosDecimales.format( Double.toString(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres))));
-                    TVmes.setText(dosDecimales.format( Double.toString(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString()))));
+                    TVmonto.setText(dosDecimales.format(total(Double.parseDouble(ETmonto.getText().toString()), Sainteres)));
+                    TVmes.setText(dosDecimales.format(Double.parseDouble(TVmonto.getText().toString()) / Integer.parseInt(ETplazo.getText().toString())));
                 }else
                     return;
             }
