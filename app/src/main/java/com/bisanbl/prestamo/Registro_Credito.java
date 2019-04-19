@@ -62,8 +62,8 @@ public class Registro_Credito extends AppCompatActivity {
                         TVfechafin.setText(" ");
                     }
 
-                }else
-                    return;
+                }
+
 
             }
         });
@@ -142,8 +142,8 @@ public class Registro_Credito extends AppCompatActivity {
                         TVmonto.setText(" ");
                         TVfechafin.setText(" ");
                     }
-                }else
-                    return;
+                }
+
             }
         });
 
@@ -208,7 +208,8 @@ public class Registro_Credito extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(fecha); // Configuramos la fecha que se recibe
 
-        calendar.add(Calendar.MONTH,meses);  // numero de meses a añadir, o restar en caso de meses<0
+        calendar.add(Calendar.MONTH,meses);// numero de meses a añadir, o restar en caso de meses<0
+
 
 
         return calendar.getTime(); // Devuelve el objeto Date con los nuevos meses añadidos
