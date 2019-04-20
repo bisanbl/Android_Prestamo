@@ -35,4 +35,6 @@
     <string name="verCliente">Ver Cliente</string>
     <string name="verPrestamo">Ver Prestamo</string>
     <string name="about">Acerca De</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Guardar</string>
 </resources>

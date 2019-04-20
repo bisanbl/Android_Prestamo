@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/nuevoR" android:title="@string/nuevo"
+    <item android:id="@+id/nuevoRegistro" android:title="@string/nuevo"
         app:showAsAction="always" />
-    <item android:id="@+id/nuevoC" android:icon="@drawable/ic_action_person"
+    <item android:id="@+id/nuevoCliente" android:icon="@drawable/ic_action_person"
         app:showAsAction="always"
         android:title="" />
     <item android:id="@+id/verCliente" android:title="@string/verCliente"/>
