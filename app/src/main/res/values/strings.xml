@@ -31,4 +31,8 @@
     <string name="Error">ERROR!! Campo no puede quedar vacio</string>
     <string name="ErrorBTN">ERROR!! Algunos Campos requeridos estan Vacios</string>
     <string name="gracias">Gracias!!</string>
+    <string name="nuevo">NUEVO PRESTAMO</string>
+    <string name="verCliente">Ver Cliente</string>
+    <string name="verPrestamo">Ver Prestamo</string>
+    <string name="about">Acerca De</string>
 </resources>

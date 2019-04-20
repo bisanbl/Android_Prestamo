@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
                     if (TextUtils.isEmpty(ETnombre.getText().toString()))
                         ETnombre.setError(getResources().getString(R.string.Error));
                 }
-                return;
             }
         });
 
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                     if (TextUtils.isEmpty(ETdireccion.getText().toString()))
                         ETdireccion.setError(getResources().getString(R.string.Error));
                 }
-                return;
             }
         });
 
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                     if (TextUtils.isEmpty(ETTelefono.getText().toString()))
                         ETTelefono.setError(getResources().getString(R.string.Error));
                 }
-                return;
             }
         });
 
@@ -65,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
                     if (TextUtils.isEmpty(ETcedula.getText().toString()))
                         ETcedula.setError(getResources().getString(R.string.Error));
                 }
-                return;
             }
         });
 
@@ -84,11 +82,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
     private boolean validarActivity(EditText ETnombre, EditText ETdireccion, EditText ETTelefono, EditText ETcedula){
         if (!TextUtils.isEmpty(ETnombre.getText().toString()) || !TextUtils.isEmpty(ETdireccion.getText().toString())){
-            if (!TextUtils.isEmpty(ETTelefono.getText().toString()) || !TextUtils.isEmpty(ETcedula.getText().toString())) {
-                return true;
-            }
+            return (!TextUtils.isEmpty(ETTelefono.getText().toString()) || !TextUtils.isEmpty(ETcedula.getText().toString()));
+
+
         }
         return false;
     }
