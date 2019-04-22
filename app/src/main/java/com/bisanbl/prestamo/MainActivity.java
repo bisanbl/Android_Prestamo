@@ -1,6 +1,8 @@
 package com.bisanbl.prestamo;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,18 +35,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
         Intent intent;
+
         switch (item.getItemId()){
             case R.id.nuevoRegistro:
                 intent = new Intent(getApplicationContext(), Registro_Credito.class);
+                intent.putExtra("clientes",);
                 startActivity(intent);
                 break;
 
             case R.id.nuevoCliente:
                 intent = new Intent(getApplicationContext(), RegistroCliente.class);
-                startActivity(intent);
+                startActivityForResult(intent,1);
                 break;
 
 
@@ -51,5 +54,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch(requestCode){
+            case 1:
+                if (resultCode == Activity.RESULT_OK){
 
+                }else {
+
+                }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }
