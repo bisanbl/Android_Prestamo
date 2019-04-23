@@ -3,6 +3,9 @@ package com.bisanbl.prestamo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Cliente implements Parcelable {
     private String Nombre;
     private String Apellido;
@@ -11,6 +14,7 @@ class Cliente implements Parcelable {
     private String Cedula;
     private String Direccion;
     private String Ocupacion;
+    private List<Prestamo> prestamos = new ArrayList<>();
 
     String getNombre() {
         return Nombre;
@@ -38,6 +42,10 @@ class Cliente implements Parcelable {
 
     String getOcupacion() {
         return Ocupacion;
+    }
+
+    List<Prestamo> getPrestamos(){
+        return prestamos;
     }
 
     void setNombre(String nombre) {
@@ -68,6 +76,10 @@ class Cliente implements Parcelable {
         this.Ocupacion = ocupacion;
     }
 
+    void setPrestamos(Prestamo prestamo){
+        prestamos.add(prestamo);
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -82,6 +94,7 @@ class Cliente implements Parcelable {
         dest.writeString(Cedula);
         dest.writeString(Direccion);
         dest.writeString(Ocupacion);
+        dest.writeTypedList(prestamos);
 
     }
 
@@ -93,6 +106,7 @@ class Cliente implements Parcelable {
         Cedula = in.readString();
         Direccion = in.readString();
         Ocupacion = in.readString();
+        in.readTypedList(prestamos, Prestamo.CREATOR);
     }
 
     Cliente(){

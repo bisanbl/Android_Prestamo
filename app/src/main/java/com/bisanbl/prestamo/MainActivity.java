@@ -2,29 +2,19 @@ package com.bisanbl.prestamo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity {
-    Vector<Cliente> Clientes = new Vector<>();
+    List<Cliente> Clientes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +33,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
-
+        TextView TVLog = findViewById(R.id.TVLog);
         switch (item.getItemId()){
             case R.id.nuevoRegistro:
-                intent = new Intent(getApplicationContext(), Registro_Credito.class);
-                intent.putExtra("Clientes",Clientes);
-                startActivity(intent);
+
+                if (Clientes.size() >0){
+                    intent = new Intent(getApplicationContext(), Registro_Credito.class);
+                    intent.putStringArrayListExtra("nombreClientes", nombreClientes());
+                    startActivityForResult(intent,2);
+                }else {
+                    TVLog.append("no hay Clientes\n");
+                }
                 break;
 
             case R.id.nuevoCliente:
@@ -77,11 +72,28 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 if (resultCode == Activity.RESULT_OK){
                     Clientes.add((Cliente) data.getParcelableExtra("Cliente"));
-                    TVLog.append("Ingreso de nuevo Cliente " + Clientes.lastElement().getNombre() + "\n");
+                    TVLog.append("Ingreso de nuevo Cliente " + Clientes.get(Clientes.size()-1).getNombre() + "\n");
                 }else {
                     TVLog.append("Cancelo Ingreso de Nuevo Cliente\n");
                 }
+                break;
+
+            case 2:
+                if (resultCode ==Activity.RESULT_OK){
+
+                }else {
+
+                }
+                break;
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    ArrayList<String> nombreClientes(){
+        ArrayList<String> nombresClientes = new ArrayList<>();
+        for (int i =0; i <Clientes.size();i++){
+            nombresClientes.add(Clientes.get(i).getNombre() + " " + Clientes.get(i).getApellido());
+        }
+        return nombresClientes;
     }
 }
