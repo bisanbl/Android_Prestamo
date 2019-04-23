@@ -17,7 +17,14 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Vector;
+
 public class MainActivity extends AppCompatActivity {
+    Vector<Cliente> Clientes = new Vector<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.nuevoRegistro:
                 intent = new Intent(getApplicationContext(), Registro_Credito.class);
-                intent.putExtra("clientes",);
+                intent.putExtra("Clientes",Clientes);
                 startActivity(intent);
                 break;
 
@@ -56,12 +63,23 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        TextView TVLog = findViewById(R.id.TVLog);
+        try {
+            if(data.getExtras() ==null){
+                TVLog.append("no hay informacion\n");
+                return;
+            }
+        }catch (Exception e){
+
+        }
         switch(requestCode){
             case 1:
                 if (resultCode == Activity.RESULT_OK){
-
+                    Clientes.add((Cliente) data.getParcelableExtra("Cliente"));
+                    TVLog.append("Ingreso de nuevo Cliente " + Clientes.lastElement().getNombre() + "\n");
                 }else {
-
+                    TVLog.append("Cancelo Ingreso de Nuevo Cliente\n");
                 }
         }
         super.onActivityResult(requestCode, resultCode, data);

@@ -4,68 +4,68 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 class Cliente implements Parcelable {
-    String Nombre;
-    String Apellido;
-    String Sexo;
-    String Telefono;
-    String Cedula;
-    String Direccion;
-    String Ocupacion;
+    private String Nombre;
+    private String Apellido;
+    private String Sexo;
+    private String Telefono;
+    private String Cedula;
+    private String Direccion;
+    private String Ocupacion;
 
-    public String getNombre() {
+    String getNombre() {
         return Nombre;
     }
 
-    public String getApellido() {
+    String getApellido() {
         return Apellido;
     }
 
-    public String getSexo() {
+    String getSexo() {
         return Sexo;
     }
 
-    public String getTelefono() {
+    String getTelefono() {
         return Telefono;
     }
 
-    public String getCedula() {
+    String getCedula() {
         return Cedula;
     }
 
-    public String getDireccion() {
+    String getDireccion() {
         return Direccion;
     }
 
-    public String getOcupacion() {
+    String getOcupacion() {
         return Ocupacion;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    void setNombre(String nombre) {
+        this.Nombre = nombre;
     }
 
-    public void setApellido(String apellido) {
-        Apellido = apellido;
+    void setApellido(String apellido) {
+        this.Apellido = apellido;
     }
 
-    public void setSexo(String sexo) {
-        Sexo = sexo;
+    void setSexo(String sexo) {
+        this.Sexo = sexo;
     }
 
-    public void setTelefono(String telefono) {
-        Telefono = telefono;
+    void setTelefono(String telefono) {
+        this.Telefono = telefono;
     }
 
-    public void setDireccion(String direccion) {
-        Direccion = direccion;
+    void setDireccion(String direccion) {
+        this.Direccion = direccion;
     }
 
-    public void setCedula(String cedula) {
-        Cedula = cedula;
+    void setCedula(String cedula) {
+        this.Cedula = cedula;
     }
 
-    public void setOcupacion(String ocupacion) {
-        Ocupacion = ocupacion;
+    void setOcupacion(String ocupacion) {
+        this.Ocupacion = ocupacion;
     }
 
     @Override
@@ -85,7 +85,7 @@ class Cliente implements Parcelable {
 
     }
 
-    public void readFromParcel(Parcel in){
+    private void readFromParcel(Parcel in){
         Nombre = in.readString();
         Apellido = in.readString();
         Sexo = in.readString();
@@ -95,15 +95,15 @@ class Cliente implements Parcelable {
         Ocupacion = in.readString();
     }
 
-    public Cliente(){
+    Cliente(){
 
     }
 
-    public Cliente(Parcel in){
+    private Cliente(Parcel in){
         readFromParcel(in);
     }
 
-    public  static  final  Parcelable.Creator<Cliente> CREATOR = new Parcelable.Creator<Cliente>(){
+    public  static  final  Creator<Cliente> CREATOR = new Creator<Cliente>(){
         public Cliente createFromParcel(Parcel in){
             return new Cliente(in);
         }
