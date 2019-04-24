@@ -42,6 +42,17 @@
             app:layout_constraintVertical_chainStyle="spread_inside" />
 
 
+        <Spinner
+            android:id="@+id/SPNombreCliente"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVCliente" />
+
         <TextView
             android:id="@+id/TVMonto"
             android:layout_width="93dp"
@@ -197,26 +208,34 @@
             app:layout_constraintTop_toBottomOf="@+id/TVMontoPagarM" />
 
         <Button
-            android:id="@+id/BTNFinalizar"
+            android:id="@+id/BTNGuardar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/fin"
+            android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/SAinteres"
             app:layout_constraintTop_toBottomOf="@+id/TVMontomesM" />
 
-        <Spinner
-            android:id="@+id/SPNombreCliente"
+        <Button
+            android:id="@+id/BTNCancelar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp"
+            android:text="@string/cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/BTNGuardar"
+            app:layout_constraintHorizontal_bias="0.477"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TVCliente" />
+            app:layout_constraintTop_toBottomOf="@+id/TVMontomesM"
+            app:layout_constraintVertical_bias="0.502" />
+
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

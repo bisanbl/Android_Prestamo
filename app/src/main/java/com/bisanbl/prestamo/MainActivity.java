@@ -61,30 +61,30 @@ public class MainActivity extends AppCompatActivity {
 
         TextView TVLog = findViewById(R.id.TVLog);
         try {
-            if(data.getExtras() ==null){
-                TVLog.append("no hay informacion\n");
-                return;
+            if(data.getExtras() !=null && resultCode == Activity.RESULT_OK){
+                switch(requestCode){
+                    case 1:
+                            Clientes.add((Cliente) data.getParcelableExtra("Cliente"));
+                            TVLog.append("Ingreso de nuevo Cliente " + Clientes.get(Clientes.size()-1).getNombre() + "\n");
+                        break;
+
+                    case 2:
+                            Clientes.get(data.getIntExtra("Cliente",0)).setPrestamos((Prestamo)data.getParcelableExtra("Prestamo"));
+                            TVLog.append("Ingreso de Nuevo Prestamo\n");
+                        break;
+                }
+            }else {
+                switch (requestCode){
+                    case 1:
+                        TVLog.append("Cancelo Ingreso de Nuevo Cliente\n");
+                        break;
+                    case 2:
+                        TVLog.append("Cancelo Ingreso de Nuevo Prestamo\n");
+                        break;
+                }
             }
         }catch (Exception e){
 
-        }
-        switch(requestCode){
-            case 1:
-                if (resultCode == Activity.RESULT_OK){
-                    Clientes.add((Cliente) data.getParcelableExtra("Cliente"));
-                    TVLog.append("Ingreso de nuevo Cliente " + Clientes.get(Clientes.size()-1).getNombre() + "\n");
-                }else {
-                    TVLog.append("Cancelo Ingreso de Nuevo Cliente\n");
-                }
-                break;
-
-            case 2:
-                if (resultCode ==Activity.RESULT_OK){
-
-                }else {
-
-                }
-                break;
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

@@ -1,5 +1,7 @@
 package com.bisanbl.prestamo;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,8 +9,8 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -27,19 +30,32 @@ public class Registro_Credito extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro__credito);
 
-        TextView TVfechainicial = findViewById(R.id.TVFechaInicialM);
+        final TextView TVfechainicial = findViewById(R.id.TVFechaInicialM);
         final TextView TVfechafin = findViewById(R.id.TVFechaFinM);
         final TextView TVmonto = findViewById(R.id.TVMontoPagarM);
         final TextView TVmes = findViewById(R.id.TVMontomesM);
 
         final EditText ETplazo = findViewById(R.id.ETPlazo);
         final EditText ETmonto = findViewById(R.id.ETMonton);
+
+        final Spinner SanombreCliente = findViewById(R.id.SPNombreCliente);
         final Spinner Sainteres = findViewById(R.id.SAinteres);
 
         final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         final DecimalFormat dosDecimales = new DecimalFormat("0.##");
         final Date date = new Date();
-        Button BTNFinalizar = findViewById(R.id.BTNFinalizar);
+
+        Button BTNGuardar = findViewById(R.id.BTNGuardar);
+        Button BTNCancelar = findViewById(R.id.BTNCancelar);
+
+        ArrayList<String> nombreClientes;
+
+        if (getIntent().getExtras() != null){
+            nombreClientes =  getIntent().getStringArrayListExtra("nombreClientes");
+            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, nombreClientes);
+            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            SanombreCliente.setAdapter(dataAdapter);
+        }
 
 
         TVfechainicial.setText(dateFormat.format(date));
@@ -170,13 +186,38 @@ public class Registro_Credito extends AppCompatActivity {
             }
         });
 
-        BTNFinalizar.setOnClickListener(new View.OnClickListener() {
+        BTNGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty(TVfechafin.getText().toString()))
-                    Snackbar.make(v, getResources().getString(R.string.gracias),Snackbar.LENGTH_LONG).show();
-                else
+                if (!TextUtils.isEmpty(TVfechafin.getText().toString())) {
+                    Prestamo prestamo = new Prestamo(Float.parseFloat(TVmonto.getText().toString()),
+                            Float.parseFloat(Sainteres.getSelectedItem().toString()),
+                            Integer.parseInt(TVmes.getText().toString()),
+                            TVfechainicial.getText().toString(),
+                            TVfechafin.getText().toString(),
+                            Float.parseFloat(ETmonto.getText().toString()),
+                            Float.parseFloat(ETplazo.getText().toString())
+                            );
+
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("Prestamo",prestamo);
+                    returnIntent.putExtra("Cliente",SanombreCliente.getSelectedItemPosition());
+                    setResult(Activity.RESULT_OK,returnIntent);
+                    finish();
+
+
+                    //Snackbar.make(v, getResources().getString(R.string.gracias),Snackbar.LENGTH_LONG).show();
+                }else
                     Snackbar.make(v, getResources().getString(R.string.ErrorBTN),Snackbar.LENGTH_LONG).show();
+            }
+        });
+
+        BTNCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent returnIntent = new Intent();
+                setResult(Activity.RESULT_CANCELED,returnIntent);
+                finish();
             }
         });
 
