@@ -45,8 +45,8 @@ public class Registro_Credito extends AppCompatActivity {
         final DecimalFormat dosDecimales = new DecimalFormat("0.##");
         final Date date = new Date();
 
-        Button BTNGuardar = findViewById(R.id.BTNGuardar);
-        Button BTNCancelar = findViewById(R.id.BTNCancelar);
+        Button BTNGuardar = findViewById(R.id.BTNSiguiente);
+        Button BTNCancelar = findViewById(R.id.BTNAnterior);
 
         ArrayList<String> nombreClientes;
 
@@ -190,13 +190,13 @@ public class Registro_Credito extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(TVfechafin.getText().toString())) {
-                    Prestamo prestamo = new Prestamo(Float.parseFloat(TVmonto.getText().toString()),
+                    Prestamo prestamo = new Prestamo(Float.parseFloat(ETmonto.getText().toString()),
                             Float.parseFloat(Sainteres.getSelectedItem().toString()),
-                            Integer.parseInt(TVmes.getText().toString()),
+                            Integer.parseInt(ETplazo.getText().toString()),
                             TVfechainicial.getText().toString(),
                             TVfechafin.getText().toString(),
-                            Float.parseFloat(ETmonto.getText().toString()),
-                            Float.parseFloat(ETplazo.getText().toString())
+                            Float.parseFloat(TVmonto.getText().toString()),
+                            Float.parseFloat(TVmes.getText().toString())
                             );
 
                     Intent returnIntent = new Intent();

@@ -39,4 +39,14 @@
     <string name="about">Acerca De</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
+    <string name="nuevop">Nuevo Prestamo</string>
+    <string name="anterior">Anterior</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="llegoinicio">Llego al Inicio</string>
+    <string name="llegofin">Llego al Final</string>
+    <string name="cancelPrestamo">Cancelo Ingreso de Nuevo Prestamo</string>
+    <string name="cancelCliente">Cancelo Ingreso de Nuevo Cliente</string>
+    <string name="ingresoPrestamo">Ingreso de Nuevo Prestamo</string>
+    <string name="ingresoCliente">Ingreso de nuevo Cliente</string>
+    <string name="ceroClientes">No hay Clientes</string>
 </resources>

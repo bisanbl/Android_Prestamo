@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putStringArrayListExtra("nombreClientes", nombreClientes());
                     startActivityForResult(intent,2);
                 }else {
-                    TVLog.append("no hay Clientes\n");
+                    TVLog.append(getResources().getString(R.string.ceroClientes)+"\n");
                 }
                 break;
 
@@ -52,8 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.verCliente:
-                intent = new Intent(getApplicationContext(),Ver_Clientes.class);
-                startActivityForResult(intent,3);
+                if (Clientes.size() >0) {
+                    intent = new Intent(getApplicationContext(), Ver_Clientes.class);
+                    intent.putParcelableArrayListExtra("Clientes", (ArrayList<? extends Parcelable>) Clientes);
+                    startActivityForResult(intent, 3);
+                }else {
+                    TVLog.append(getResources().getString(R.string.ceroClientes) + "\n");
+                }
                 break;
 
             case R.id.verPrestamo:
@@ -76,21 +81,30 @@ public class MainActivity extends AppCompatActivity {
                 switch(requestCode){
                     case 1:
                             Clientes.add((Cliente) data.getParcelableExtra("Cliente"));
-                            TVLog.append("Ingreso de nuevo Cliente " + Clientes.get(Clientes.size()-1).getNombre() + "\n");
+                            TVLog.append(getResources().getString(R.string.ingresoCliente) + " " + Clientes.get(Clientes.size()-1).getNombre() + "\n");
                         break;
 
                     case 2:
                             Clientes.get(data.getIntExtra("Cliente",0)).setPrestamos((Prestamo)data.getParcelableExtra("Prestamo"));
-                            TVLog.append("Ingreso de Nuevo Prestamo\n");
+                            TVLog.append(getResources().getString(R.string.ingresoPrestamo)+"\n");
                         break;
+                    case 3:
+                        List<Cliente> tempclientes = data.getParcelableArrayListExtra("Clientes");
+                        Clientes = new ArrayList<>(tempclientes);
+                        if (data.getIntExtra("prestamo",0)>0){
+                            for (int i =0; i <data.getIntExtra("prestamo",0); i++){
+                                TVLog.append(getResources().getString(R.string.ingresoPrestamo)+"\n");
+                            }
+                        }
+                     break;
                 }
             }else {
                 switch (requestCode){
                     case 1:
-                        TVLog.append("Cancelo Ingreso de Nuevo Cliente\n");
+                        TVLog.append(getResources().getString(R.string.cancelCliente)  +"\n");
                         break;
                     case 2:
-                        TVLog.append("Cancelo Ingreso de Nuevo Prestamo\n");
+                        TVLog.append(getResources().getString(R.string.cancelPrestamo) + "\n");
                         break;
                 }
             }
