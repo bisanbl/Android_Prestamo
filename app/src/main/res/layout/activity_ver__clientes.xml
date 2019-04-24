@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/scrollView2"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:fillViewport="true">
-
-<android.support.constraint.ConstraintLayout
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".RegistroCliente">
+    android:layout_height="match_parent"
+    tools:context=".Ver_Clientes">
 
     <TextView
         android:id="@+id/TVSolicitud"
@@ -20,7 +14,7 @@ android:fillViewport="true">
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="699dp"
-        android:text="@string/solicitud"
+        android:text="@string/prestamo"
         android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Material.WindowTitle"
         android:textColor="#03A9F4"
@@ -31,12 +25,12 @@ android:fillViewport="true">
 
     <TextView
         android:id="@+id/TVCliente"
-        android:layout_width="152dp"
-        android:layout_height="0dp"
+        android:layout_width="153dp"
+        android:layout_height="26dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="24dp"
-        android:text="@string/Rcliente"
+        android:text="@string/Vcliente"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/TVNombre"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,27 +61,23 @@ android:fillViewport="true">
         app:layout_constraintStart_toEndOf="@+id/TVNombre"
         app:layout_constraintTop_toBottomOf="@+id/TVCliente" />
 
-    <EditText
+    <TextView
         android:id="@+id/ETVNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/TVApellido"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVNombre" />
 
-    <EditText
+    <TextView
         android:id="@+id/ETVApellido"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/TVApellido"
         app:layout_constraintTop_toBottomOf="@+id/TVApellido" />
@@ -97,7 +87,7 @@ android:fillViewport="true">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:text="@string/sexo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETVNombre" />
@@ -111,7 +101,7 @@ android:fillViewport="true">
         app:layout_constraintStart_toStartOf="@+id/ETVApellido"
         app:layout_constraintTop_toBottomOf="@+id/ETVApellido" />
 
-    <Spinner
+    <TextView
         android:id="@+id/ETVsexo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -119,21 +109,20 @@ android:fillViewport="true">
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:entries="@array/asexo"
         app:layout_constraintBottom_toTopOf="@+id/TVCedula"
         app:layout_constraintEnd_toStartOf="@+id/TVTelefono"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVSexo" />
+        app:layout_constraintTop_toBottomOf="@+id/TVSexo"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <EditText
+    <TextView
         android:id="@+id/ETVTelefono"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/ETVCedula"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -151,15 +140,13 @@ android:fillViewport="true">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETVTelefono" />
 
-    <EditText
+    <TextView
         android:id="@+id/ETVCedula"
         android:layout_width="0dp"
-        android:layout_height="42dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVCedula" />
@@ -174,15 +161,13 @@ android:fillViewport="true">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETVCedula" />
 
-    <EditText
+    <TextView
         android:id="@+id/ETVOcupacion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVOcupacion" />
@@ -197,15 +182,13 @@ android:fillViewport="true">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETVOcupacion" />
 
-    <EditText
+    <TextView
         android:id="@+id/ETVDireccion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVDireccion" />
@@ -224,7 +207,7 @@ android:fillViewport="true">
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETVDireccion"
-        app:layout_constraintVertical_bias="0.096" />
+        app:layout_constraintVertical_bias="0.061" />
 
     <Button
         android:id="@+id/BTNGuardar"
@@ -241,6 +224,4 @@ android:fillViewport="true">
         app:layout_constraintStart_toStartOf="@+id/ETVTelefono"
         app:layout_constraintTop_toBottomOf="@+id/ETVDireccion"
         app:layout_constraintVertical_bias="0.0" />
-
 </android.support.constraint.ConstraintLayout>
-</ScrollView>

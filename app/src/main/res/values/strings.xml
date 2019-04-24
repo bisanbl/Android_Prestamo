@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Prestamo</string>
     <string name="solicitud">Solicitud de Prestamo</string>
-    <string name="cliente">Registro de Cliente</string>
+    <string name="Rcliente">Registro de Cliente</string>
+    <string name="Vcliente">Ver Clientes</string>
     <string name="credito">Registro de Credito</string>
+    <string name="prestamo">Registro de Prestamo</string>
     <string name="nombre">Nombre*</string>
     <string name="apellido">Apellido</string>
     <string name="sexo">Sexo</string>

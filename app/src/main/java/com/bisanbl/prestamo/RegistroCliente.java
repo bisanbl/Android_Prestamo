@@ -18,13 +18,13 @@ public class RegistroCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_cliente);
 
-        final EditText ETnombre = findViewById(R.id.ETNombre);
-        final EditText ETapellido = findViewById(R.id.ETAoellido);
-        final Spinner  SPSexo = findViewById(R.id.SAsexo);
-        final EditText ETTelefono = findViewById(R.id.ETTelefono);
-        final EditText ETdireccion = findViewById(R.id.ETDireccion);
-        final EditText ETocupacion = findViewById(R.id.ETOcupacion);
-        final EditText ETcedula = findViewById(R.id.ETCedula);
+        final EditText ETnombre = findViewById(R.id.ETVNombre);
+        final EditText ETapellido = findViewById(R.id.ETVApellido);
+        final Spinner  SPSexo = findViewById(R.id.ETVsexo);
+        final EditText ETTelefono = findViewById(R.id.ETVTelefono);
+        final EditText ETdireccion = findViewById(R.id.ETVDireccion);
+        final EditText ETocupacion = findViewById(R.id.ETVOcupacion);
+        final EditText ETcedula = findViewById(R.id.ETVCedula);
 
 
         final Button BTNCancelar = findViewById(R.id.BTNCancelar);

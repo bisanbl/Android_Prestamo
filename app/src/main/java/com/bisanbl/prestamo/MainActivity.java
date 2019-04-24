@@ -51,6 +51,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent,1);
                 break;
 
+            case R.id.verCliente:
+                intent = new Intent(getApplicationContext(),Ver_Clientes.class);
+                startActivityForResult(intent,3);
+                break;
+
+            case R.id.verPrestamo:
+                break;
+
+            case R.id.about:
+                break;
+
 
         }
         return super.onOptionsItemSelected(item);
