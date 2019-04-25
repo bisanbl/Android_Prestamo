@@ -26,8 +26,8 @@ public class Ver_Clientes extends AppCompatActivity {
 
 
 
-        Button BTNSiguiente = findViewById(R.id.BTNSiguiente);
-        Button BTNAnterior = findViewById(R.id.BTNAnterior);
+        Button BTNSiguiente = findViewById(R.id.BTSiguiente);
+        Button BTNAnterior = findViewById(R.id.BTAnterior);
         Button BTNNuevoPrestamo = findViewById(R.id.BTNNuevoPrestamo);
 
 

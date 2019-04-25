@@ -43,7 +43,7 @@
 
 
         <Spinner
-            android:id="@+id/SPNombreCliente"
+            android:id="@+id/TVNombreCliente"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -61,7 +61,7 @@
             android:layout_marginTop="28dp"
             android:text="@string/monto"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/SPNombreCliente" />
+            app:layout_constraintTop_toBottomOf="@+id/TVNombreCliente" />
 
         <TextView
             android:id="@+id/TVInteres"
@@ -71,7 +71,7 @@
             android:layout_marginTop="28dp"
             android:text="@string/interes"
             app:layout_constraintStart_toEndOf="@+id/TVCliente"
-            app:layout_constraintTop_toBottomOf="@+id/SPNombreCliente" />
+            app:layout_constraintTop_toBottomOf="@+id/TVNombreCliente" />
 
         <TextView
             android:id="@+id/TVPlazo"
@@ -83,10 +83,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toEndOf="@+id/TVInteres"
-            app:layout_constraintTop_toBottomOf="@+id/SPNombreCliente" />
+            app:layout_constraintTop_toBottomOf="@+id/TVNombreCliente" />
 
         <EditText
-            android:id="@+id/ETMonton"
+            android:id="@+id/ETVMonton"
             android:layout_width="110dp"
             android:layout_height="39dp"
             android:layout_marginStart="8dp"
@@ -100,19 +100,19 @@
             app:layout_constraintTop_toBottomOf="@+id/TVMonto" />
 
         <Spinner
-            android:id="@+id/SAinteres"
+            android:id="@+id/ETVinteres"
             android:layout_width="97dp"
             android:layout_height="37dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
             android:entries="@array/ainteres"
             android:spinnerMode="dropdown"
-            app:layout_constraintEnd_toStartOf="@+id/ETPlazo"
+            app:layout_constraintEnd_toStartOf="@+id/ETVPlazo"
             app:layout_constraintStart_toStartOf="@+id/TVInteres"
             app:layout_constraintTop_toBottomOf="@+id/TVInteres" />
 
         <EditText
-            android:id="@+id/ETPlazo"
+            android:id="@+id/ETVPlazo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -131,7 +131,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/fecha"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ETMonton" />
+            app:layout_constraintTop_toBottomOf="@+id/ETVMonton" />
 
         <TextView
             android:id="@+id/TVFechaInicialM"
@@ -208,7 +208,7 @@
             app:layout_constraintTop_toBottomOf="@+id/TVMontoPagarM" />
 
         <Button
-            android:id="@+id/BTNSiguiente"
+            android:id="@+id/BTSiguiente"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -218,11 +218,11 @@
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/SAinteres"
+            app:layout_constraintStart_toStartOf="@+id/ETVinteres"
             app:layout_constraintTop_toBottomOf="@+id/TVMontomesM" />
 
         <Button
-            android:id="@+id/BTNAnterior"
+            android:id="@+id/BTAnterior"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -231,7 +231,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/cancel"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/BTNSiguiente"
+            app:layout_constraintEnd_toStartOf="@+id/BTSiguiente"
             app:layout_constraintHorizontal_bias="0.477"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TVMontomesM"

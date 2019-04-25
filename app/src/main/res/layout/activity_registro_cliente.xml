@@ -211,7 +211,7 @@ android:fillViewport="true">
         app:layout_constraintTop_toBottomOf="@+id/TVDireccion" />
 
     <Button
-        android:id="@+id/BTNAnterior"
+        android:id="@+id/BTAnterior"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -227,7 +227,7 @@ android:fillViewport="true">
         app:layout_constraintVertical_bias="0.096" />
 
     <Button
-        android:id="@+id/BTNSiguiente"
+        android:id="@+id/BTSiguiente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

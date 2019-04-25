@@ -35,18 +35,18 @@ public class Registro_Credito extends AppCompatActivity {
         final TextView TVmonto = findViewById(R.id.TVMontoPagarM);
         final TextView TVmes = findViewById(R.id.TVMontomesM);
 
-        final EditText ETplazo = findViewById(R.id.ETPlazo);
-        final EditText ETmonto = findViewById(R.id.ETMonton);
+        final EditText ETplazo = findViewById(R.id.ETVPlazo);
+        final EditText ETmonto = findViewById(R.id.ETVMonton);
 
-        final Spinner SanombreCliente = findViewById(R.id.SPNombreCliente);
-        final Spinner Sainteres = findViewById(R.id.SAinteres);
+        final Spinner SanombreCliente = findViewById(R.id.TVNombreCliente);
+        final Spinner Sainteres = findViewById(R.id.ETVinteres);
 
         final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         final DecimalFormat dosDecimales = new DecimalFormat("0.##");
         final Date date = new Date();
 
-        Button BTNGuardar = findViewById(R.id.BTNSiguiente);
-        Button BTNCancelar = findViewById(R.id.BTNAnterior);
+        Button BTNGuardar = findViewById(R.id.BTSiguiente);
+        Button BTNCancelar = findViewById(R.id.BTAnterior);
 
         ArrayList<String> nombreClientes;
 
@@ -190,14 +190,14 @@ public class Registro_Credito extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(TVfechafin.getText().toString())) {
-                    Prestamo prestamo = new Prestamo(Float.parseFloat(ETmonto.getText().toString()),
-                            Float.parseFloat(Sainteres.getSelectedItem().toString()),
-                            Integer.parseInt(ETplazo.getText().toString()),
-                            TVfechainicial.getText().toString(),
-                            TVfechafin.getText().toString(),
-                            Float.parseFloat(TVmonto.getText().toString()),
-                            Float.parseFloat(TVmes.getText().toString())
-                            );
+                    Prestamo prestamo = new Prestamo();
+                    prestamo.setMonto(Float.parseFloat(ETmonto.getText().toString().replace(',','.').trim()));
+                    prestamo.setInteres(Float.parseFloat(Sainteres.getSelectedItem().toString()));
+                    prestamo.setPlazo(Integer.parseInt(ETplazo.getText().toString()));
+                    prestamo.setFechainicio(TVfechainicial.getText().toString());
+                    prestamo.setFechafin(TVfechafin.getText().toString());
+                    prestamo.setTotal(Float.parseFloat(TVmonto.getText().toString().replace(',','.').trim()));
+                    prestamo.setCuota(Float.parseFloat(TVmes.getText().toString().replace(',', '.').trim()));
 
                     Intent returnIntent = new Intent();
                     returnIntent.putExtra("Prestamo",prestamo);

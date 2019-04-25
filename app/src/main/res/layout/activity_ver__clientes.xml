@@ -201,7 +201,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TVDireccion" />
 
     <Button
-        android:id="@+id/BTNAnterior"
+        android:id="@+id/BTAnterior"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -214,7 +214,7 @@
         app:layout_constraintVertical_bias="0.061" />
 
     <Button
-        android:id="@+id/BTNSiguiente"
+        android:id="@+id/BTSiguiente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -225,7 +225,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/BTNAnterior"
+        app:layout_constraintStart_toEndOf="@+id/BTAnterior"
         app:layout_constraintTop_toBottomOf="@+id/ETVDireccion"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -237,7 +237,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:text="@string/nuevop"
-        app:layout_constraintEnd_toStartOf="@+id/BTNAnterior"
+        app:layout_constraintEnd_toStartOf="@+id/BTAnterior"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETVDireccion" />
 </android.support.constraint.ConstraintLayout>

@@ -27,8 +27,8 @@ public class RegistroCliente extends AppCompatActivity {
         final EditText ETcedula = findViewById(R.id.ETVCedula);
 
 
-        final Button BTNCancelar = findViewById(R.id.BTNAnterior);
-        final Button BTNGuardar = findViewById(R.id.BTNSiguiente);
+        final Button BTNCancelar = findViewById(R.id.BTAnterior);
+        final Button BTNGuardar = findViewById(R.id.BTSiguiente);
 
         ETnombre.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

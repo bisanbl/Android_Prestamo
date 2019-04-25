@@ -62,6 +62,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.verPrestamo:
+                if (Clientes.size() >0) {
+                    intent = new Intent(getApplicationContext(), Ver_Prestamos.class);
+                    intent.putParcelableArrayListExtra("Clientes", (ArrayList<? extends Parcelable>) Clientes);
+                    startActivity(intent);
+                }else {
+                    TVLog.append(getResources().getString(R.string.ceroClientes) + "\n");
+                }
                 break;
 
             case R.id.about:
