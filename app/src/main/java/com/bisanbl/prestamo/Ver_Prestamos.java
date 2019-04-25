@@ -1,5 +1,6 @@
 package com.bisanbl.prestamo;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,32 +35,41 @@ public class Ver_Prestamos extends AppCompatActivity {
         BTNSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (prestamos.size()>index2 && index <Clientes.size()){
-                        index ++;
-                    index2 =0;
-                    prestamos.clear();
-                    prestamos = Clientes.get(index).getPrestamos();
-                    cargarDatos();
-                }else {
+                if (prestamos.size()-1>index2){
                     index2++;
-                    cargarDatos();
-                }
+                }else {
+                    if(index <Clientes.size()-1) {
+                        index++;
+                        index2 =0;
+                        prestamos.clear();
+                        prestamos = Clientes.get(index).getPrestamos();
+                    }else{
+                        Snackbar.make(v, getResources().getString(R.string.llegofin),Snackbar.LENGTH_LONG).show();
+                        return;
+                    }
 
+
+                }
+                cargarDatos();
             }
         });
         BTNAnterior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (index2>0 && index>0){
-                        index --;
-                    index2 =0;
-                    prestamos.clear();
-                    prestamos = Clientes.get(index).getPrestamos();
-                    cargarDatos();
-                }else {
+                if (index2>0){
                     index2--;
-                    cargarDatos();
+                }else {
+                    if (index >0) {
+                        index--;
+                        index2 = 0;
+                        prestamos.clear();
+                        prestamos = Clientes.get(index).getPrestamos();
+                    }else {
+                        Snackbar.make(v, getResources().getString(R.string.llegoinicio),Snackbar.LENGTH_LONG).show();
+                        return;
+                    }
                 }
+                cargarDatos();
             }
         });
     }
@@ -74,7 +84,7 @@ public class Ver_Prestamos extends AppCompatActivity {
         TextView ETVMontoPagarM = findViewById(R.id.TVMontoPagarM);
         TextView ETVMontoMesM = findViewById(R.id.TVMontomesM);
 
-        TVNombre.setText(Clientes.get(index).getNombre());
+        TVNombre.setText(Clientes.get(index).getNombre() + " " + Clientes.get(index).getApellido());
         ETVMonto.setText(prestamos.get(index2).getMonto().toString());
         ETVInteres.setText(prestamos.get(index2).getInteres().toString());
         ETVPlazo.setText(Integer.toString(prestamos.get(index2).getPlazo()));
