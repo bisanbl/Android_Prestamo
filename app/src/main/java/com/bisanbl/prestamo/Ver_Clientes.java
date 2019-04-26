@@ -87,7 +87,7 @@ public class Ver_Clientes extends AppCompatActivity {
                     Clientes.get(index).setPrestamos((Prestamo)data.getParcelableExtra("Prestamo"));
                     prestamo++;
                 }else {
-                    Snackbar.make(getWindow().getDecorView().getRootView(), getResources().getString(R.string.llegofin),Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(getWindow().getDecorView().getRootView(), getResources().getString(R.string.cancelPrestamo),Snackbar.LENGTH_LONG).show();
                 }
 
             }

@@ -1,13 +1,19 @@
 package com.bisanbl.prestamo;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,7 +28,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView TVLog = findViewById(R.id.TVLog);
 
+        registerForContextMenu(TVLog);
+
+
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        TextView TVLog = findViewById(R.id.TVLog);
+        switch (item.getItemId()){
+            case R.id.delete:
+                TVLog.setText(" ");
+                break;
+
+            case R.id.copy:
+                ClipboardManager myClipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData myClip;
+
+                String text = TVLog.getText().toString();
+                myClip = ClipData.newPlainText("text", text);
+                myClipboard.setPrimaryClip(myClip);
+
+                break;
+        }
+        return super.onContextItemSelected(item);
     }
 
     @Override
@@ -79,11 +110,18 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.about:
+                Snackbar.make(getWindow().getDecorView().getRootView(), getResources().getString(R.string.AboutText),Snackbar.LENGTH_LONG).show();
                 break;
 
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.contextmenu, menu);
     }
 
     @Override
@@ -155,28 +193,6 @@ public class MainActivity extends AppCompatActivity {
                 prestamos.add(nuevoPrestamo);
             }
         }
-        /*for (int i = 0; i <Clientes.size(); i++){
-
-            userprestamos.clear();
-            userprestamos = Clientes.get(i).getPrestamos();
-
-            for (int j =0; i<userprestamos.size();j++){
-                VerPrestamo nuevoPrestamo = new VerPrestamo();
-
-                nuevoPrestamo.setName(Clientes.get(i).getNombre());
-                nuevoPrestamo.setLastname(Clientes.get(i).getApellido());
-                nuevoPrestamo.setMonto(userprestamos.get(j).getMonto());
-                nuevoPrestamo.setInteres(userprestamos.get(j).getInteres());
-                nuevoPrestamo.setPlazo(userprestamos.get(j).getPlazo());
-                nuevoPrestamo.setFechainicio(userprestamos.get(j).getFechainicio());
-                nuevoPrestamo.setFechafin(userprestamos.get(j).getFechafin());
-                nuevoPrestamo.setTotal(userprestamos.get(j).getTotal());
-                nuevoPrestamo.setCuota(userprestamos.get(j).getCuota());
-
-                prestamos.add(nuevoPrestamo);
-
-            }
-        }*/
         return prestamos;
     }
 

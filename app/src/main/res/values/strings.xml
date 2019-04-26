@@ -50,4 +50,7 @@
     <string name="ingresoCliente">Ingreso de nuevo Cliente</string>
     <string name="ceroClientes">No hay Clientes</string>
     <string name="ceroPrestamos">No hay Prestamos</string>
+    <string name="AboutText">Electiva Android</string>
+    <string name="copy">Copiar</string>
+    <string name="delete">Borrar</string>
 </resources>
