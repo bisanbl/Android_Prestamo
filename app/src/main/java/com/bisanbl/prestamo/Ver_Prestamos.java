@@ -3,6 +3,7 @@ package com.bisanbl.prestamo;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,11 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ver_Prestamos extends AppCompatActivity {
-    List<Cliente> Clientes = new ArrayList<>();
-    List<Prestamo> prestamos = new ArrayList<>();
+    ArrayList<VerPrestamo> Prestamos = new ArrayList<>();
     int index;
-    int index2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,49 +24,34 @@ public class Ver_Prestamos extends AppCompatActivity {
 
 
         if (getIntent().getExtras() != null){
-            Clientes = getIntent().getParcelableArrayListExtra("Clientes");
-            index= index2 = 0;
-            prestamos = Clientes.get(index).getPrestamos();
+            Prestamos = getIntent().getParcelableArrayListExtra("Prestamos");
+            index =0;
             cargarDatos();
         }
 
         BTNSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (prestamos.size()-1>index2){
-                    index2++;
+                if (index == Prestamos.size()-1){
+                    Snackbar.make(v, getResources().getString(R.string.llegofin),Snackbar.LENGTH_LONG).show();
                 }else {
-                    if(index <Clientes.size()-1) {
-                        index++;
-                        index2 =0;
-                        prestamos.clear();
-                        prestamos = Clientes.get(index).getPrestamos();
-                    }else{
-                        Snackbar.make(v, getResources().getString(R.string.llegofin),Snackbar.LENGTH_LONG).show();
-                        return;
-                    }
-
-
+                    index++;
+                    cargarDatos();
                 }
+
                 cargarDatos();
             }
         });
         BTNAnterior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (index2>0){
-                    index2--;
+                if (index==0){
+                    Snackbar.make(v, getResources().getString(R.string.llegoinicio),Snackbar.LENGTH_LONG).show();
                 }else {
-                    if (index >0) {
-                        index--;
-                        index2 = 0;
-                        prestamos.clear();
-                        prestamos = Clientes.get(index).getPrestamos();
-                    }else {
-                        Snackbar.make(v, getResources().getString(R.string.llegoinicio),Snackbar.LENGTH_LONG).show();
-                        return;
-                    }
+                    index--;
+                    cargarDatos();
                 }
+
                 cargarDatos();
             }
         });
@@ -84,13 +67,13 @@ public class Ver_Prestamos extends AppCompatActivity {
         TextView ETVMontoPagarM = findViewById(R.id.TVMontoPagarM);
         TextView ETVMontoMesM = findViewById(R.id.TVMontomesM);
 
-        TVNombre.setText(Clientes.get(index).getNombre() + " " + Clientes.get(index).getApellido());
-        ETVMonto.setText(prestamos.get(index2).getMonto().toString());
-        ETVInteres.setText(prestamos.get(index2).getInteres().toString());
-        ETVPlazo.setText(Integer.toString(prestamos.get(index2).getPlazo()));
-        ETVFechaInicialM.setText(prestamos.get(index2).getFechainicio());
-        ETVFechaFinM.setText(prestamos.get(index2).getFechafin());
-        ETVMontoPagarM.setText(Float.toString(prestamos.get(index2).getTotal()));
-        ETVMontoMesM.setText(Float.toString(prestamos.get(index2).getCuota()));
+        TVNombre.setText(Prestamos.get(index).getName() + " " + Prestamos.get(index).getLastname());
+        ETVMonto.setText(Prestamos.get(index).getMonto().toString());
+        ETVInteres.setText(Prestamos.get(index).getInteres().toString());
+        ETVPlazo.setText(Integer.toString(Prestamos.get(index).getPlazo()));
+        ETVFechaInicialM.setText(Prestamos.get(index).getFechainicio());
+        ETVFechaFinM.setText(Prestamos.get(index).getFechafin());
+        ETVMontoPagarM.setText(Float.toString(Prestamos.get(index).getTotal()));
+        ETVMontoMesM.setText(Float.toString(Prestamos.get(index).getCuota()));
     }
 }

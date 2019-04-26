@@ -14,7 +14,7 @@ class Cliente implements Parcelable {
     private String Cedula;
     private String Direccion;
     private String Ocupacion;
-    private List<Prestamo> prestamos = new ArrayList<>();
+    private ArrayList<Prestamo> prestamos = new ArrayList<>();
 
     String getNombre() {
         return Nombre;
@@ -44,7 +44,7 @@ class Cliente implements Parcelable {
         return Ocupacion;
     }
 
-    List<Prestamo> getPrestamos(){
+    ArrayList<Prestamo> getPrestamos(){
         return prestamos;
     }
 

@@ -44,7 +44,7 @@ public class Ver_Clientes extends AppCompatActivity {
                 if (Clientes.size()>0){
 
                     ArrayList<String> nombreClientes = new ArrayList<>();
-                    nombreClientes.add(Clientes.get(index).getNombre());
+                    nombreClientes.add(Clientes.get(index).getNombre() + " " + Clientes.get(index).getApellido());
                     Intent intent = new Intent(getApplicationContext(), Registro_Credito.class);
                     intent.putStringArrayListExtra("nombreClientes",nombreClientes );
                     startActivityForResult(intent,1);

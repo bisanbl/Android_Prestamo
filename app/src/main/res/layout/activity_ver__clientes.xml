@@ -205,20 +205,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/anterior"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/ETVTelefono"
+        app:layout_constraintEnd_toStartOf="@+id/BTSiguiente"
+        app:layout_constraintStart_toEndOf="@+id/BTNNuevoPrestamo"
         app:layout_constraintTop_toBottomOf="@+id/ETVDireccion"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.084" />
 
     <Button
         android:id="@+id/BTSiguiente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
         android:text="@string/siguiente"
@@ -227,7 +228,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/BTAnterior"
         app:layout_constraintTop_toBottomOf="@+id/ETVDireccion"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.091" />
 
     <Button
         android:id="@+id/BTNNuevoPrestamo"
@@ -235,9 +236,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/nuevop"
-        app:layout_constraintEnd_toStartOf="@+id/BTAnterior"
+        app:layout_constraintEnd_toEndOf="@+id/ETVsexo"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETVDireccion" />
 </android.support.constraint.ConstraintLayout>

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -63,9 +64,15 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.verPrestamo:
                 if (Clientes.size() >0) {
+
+                    ArrayList<VerPrestamo> listprestamo = prestamosvisibles();
+                    if (listprestamo.size()>0){
                     intent = new Intent(getApplicationContext(), Ver_Prestamos.class);
-                    intent.putParcelableArrayListExtra("Clientes", (ArrayList<? extends Parcelable>) Clientes);
+                    intent.putParcelableArrayListExtra("Prestamos", listprestamo);
                     startActivity(intent);
+                    }else {
+                        TVLog.append(getResources().getString(R.string.ceroPrestamos) + "\n");
+                    }
                 }else {
                     TVLog.append(getResources().getString(R.string.ceroClientes) + "\n");
                 }
@@ -119,6 +126,58 @@ public class MainActivity extends AppCompatActivity {
 
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    ArrayList<VerPrestamo> prestamosvisibles(){
+        ArrayList<VerPrestamo> prestamos = new ArrayList<>();
+        ArrayList<Prestamo> userprestamos = new ArrayList<>();
+
+        Iterator<Cliente> it = Clientes.iterator();
+        while (it.hasNext()) {
+            userprestamos.clear();
+            Cliente clnt = it.next();
+            userprestamos =  clnt.getPrestamos();
+            Iterator<Prestamo> itp =userprestamos.iterator();
+            while (itp.hasNext()) {
+                VerPrestamo nuevoPrestamo = new VerPrestamo();
+                Prestamo auxprestamo = itp.next();
+
+                nuevoPrestamo.setName(clnt.getNombre());
+                nuevoPrestamo.setLastname(clnt.getApellido());
+                nuevoPrestamo.setMonto(auxprestamo.getMonto());
+                nuevoPrestamo.setInteres(auxprestamo.getInteres());
+                nuevoPrestamo.setPlazo(auxprestamo.getPlazo());
+                nuevoPrestamo.setFechainicio(auxprestamo.getFechainicio());
+                nuevoPrestamo.setFechafin(auxprestamo.getFechafin());
+                nuevoPrestamo.setTotal(auxprestamo.getTotal());
+                nuevoPrestamo.setCuota(auxprestamo.getCuota());
+
+                prestamos.add(nuevoPrestamo);
+            }
+        }
+        /*for (int i = 0; i <Clientes.size(); i++){
+
+            userprestamos.clear();
+            userprestamos = Clientes.get(i).getPrestamos();
+
+            for (int j =0; i<userprestamos.size();j++){
+                VerPrestamo nuevoPrestamo = new VerPrestamo();
+
+                nuevoPrestamo.setName(Clientes.get(i).getNombre());
+                nuevoPrestamo.setLastname(Clientes.get(i).getApellido());
+                nuevoPrestamo.setMonto(userprestamos.get(j).getMonto());
+                nuevoPrestamo.setInteres(userprestamos.get(j).getInteres());
+                nuevoPrestamo.setPlazo(userprestamos.get(j).getPlazo());
+                nuevoPrestamo.setFechainicio(userprestamos.get(j).getFechainicio());
+                nuevoPrestamo.setFechafin(userprestamos.get(j).getFechafin());
+                nuevoPrestamo.setTotal(userprestamos.get(j).getTotal());
+                nuevoPrestamo.setCuota(userprestamos.get(j).getCuota());
+
+                prestamos.add(nuevoPrestamo);
+
+            }
+        }*/
+        return prestamos;
     }
 
     ArrayList<String> nombreClientes(){
