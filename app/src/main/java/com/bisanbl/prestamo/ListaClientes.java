@@ -41,6 +41,7 @@ public class ListaClientes extends AppCompatActivity {
                 @Override
                 public void onDeleteClicked(int post) {
                     Log.d("Test", String.valueOf(post));
+                    clienteAdapter.clientItems.remove(post);
                     Clientes.remove(post);
                     clienteAdapter.notifyDataSetChanged();
 
