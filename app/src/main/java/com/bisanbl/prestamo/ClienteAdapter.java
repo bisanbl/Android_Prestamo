@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHolderCliente> {
-    ArrayList<ClientItem> clientItems = new ArrayList<>();
+    //ArrayList<ClientItem> clientItems = new ArrayList<>();
     List<Cliente> Clientes;
     Context context;
 
@@ -27,7 +27,6 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
         this.context = context;
         this.Clientes = clientes;
         this.onMyAdapterClickListener = onMyAdapterClickListener;
-        cargarDatos();
     }
 
 
@@ -51,9 +50,9 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
             BTNdelete = itemView.findViewById(R.id.BTNDelete);
         }
 
-        public void asignarDatos(ClientItem clientItem) {
-            TEXTName.setText(clientItem.getName());
-            TEXTLasname.setText(clientItem.getLastname() );
+        public void asignarDatos(Cliente clientItem) {
+            TEXTName.setText(clientItem.getNombre());
+            TEXTLasname.setText(clientItem.getApellido() );
         }
 
         public void asignarClicks(final int i) {
@@ -98,20 +97,13 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderCliente viewHolderCliente, int i) {
-            viewHolderCliente.asignarDatos(clientItems.get(i));
+            viewHolderCliente.asignarDatos(Clientes.get(i));
             viewHolderCliente.asignarClicks(i);
     }
 
     @Override
     public int getItemCount() {
-        return clientItems.size() ;
+        return Clientes.size() ;
     }
 
-    void cargarDatos(){
-        Iterator<Cliente> it = Clientes.iterator();
-        while (it.hasNext()){
-            Cliente clnt = it.next();
-            clientItems.add(new ClientItem(clnt.getNombre(),clnt.getApellido()));
-        }
-    }
 }

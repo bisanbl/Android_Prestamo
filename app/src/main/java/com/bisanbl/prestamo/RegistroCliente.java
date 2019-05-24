@@ -25,6 +25,7 @@ public class RegistroCliente extends AppCompatActivity {
     EditText ETdireccion;
     EditText ETocupacion ;
     EditText ETcedula;
+    int index = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,8 @@ public class RegistroCliente extends AppCompatActivity {
 
         if (getIntent().getExtras() != null){
             Cliente = getIntent().getParcelableExtra("Cliente");
+            index = getIntent().getIntExtra("index",0);
+            Snackbar.make(findViewById(android.R.id.content),"Cargando datos del Cliente",Snackbar.LENGTH_LONG).show();
             cargarDatos();
         }
 
@@ -106,6 +109,9 @@ public class RegistroCliente extends AppCompatActivity {
 
                     Intent returnIntent = new Intent();
                     returnIntent.putExtra("Cliente",cliente);
+                    if (index != -1){
+                        returnIntent.putExtra("index",index);
+                    }
                     setResult(Activity.RESULT_OK,returnIntent);
                     finish();
                 }
@@ -127,7 +133,7 @@ public class RegistroCliente extends AppCompatActivity {
 
     void cargarDatos(){
         ETnombre.setText(Cliente.getNombre());
-        ETapellido.setText(Cliente.getNombre());
+        ETapellido.setText(Cliente.getApellido());
         SPSexo.setSelection(obtenerPosicionItem(SPSexo,Cliente.getSexo()));
         ETTelefono.setText(Cliente.getTelefono());
         ETdireccion.setText(Cliente.getDireccion());
