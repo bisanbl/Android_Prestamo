@@ -85,25 +85,9 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.verCliente:
                 if (Clientes.size() >0) {
-                    intent = new Intent(getApplicationContext(), Ver_Clientes.class);
+                    intent = new Intent(getApplicationContext(), ListaClientes.class);
                     intent.putParcelableArrayListExtra("Clientes", (ArrayList<? extends Parcelable>) Clientes);
                     startActivityForResult(intent, 3);
-                }else {
-                    TVLog.append(getResources().getString(R.string.ceroClientes) + "\n");
-                }
-                break;
-
-            case R.id.verPrestamo:
-                if (Clientes.size() >0) {
-
-                    ArrayList<VerPrestamo> listprestamo = prestamosvisibles();
-                    if (listprestamo.size()>0){
-                    intent = new Intent(getApplicationContext(), Ver_Prestamos.class);
-                    intent.putParcelableArrayListExtra("Prestamos", listprestamo);
-                    startActivity(intent);
-                    }else {
-                        TVLog.append(getResources().getString(R.string.ceroPrestamos) + "\n");
-                    }
                 }else {
                     TVLog.append(getResources().getString(R.string.ceroClientes) + "\n");
                 }
