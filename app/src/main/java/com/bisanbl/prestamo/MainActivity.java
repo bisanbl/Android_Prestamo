@@ -67,14 +67,20 @@ public class MainActivity extends AppCompatActivity {
         Intent intent;
         TextView TVLog = findViewById(R.id.TVLog);
         switch (item.getItemId()){
-            case R.id.nuevoRegistro:
+            case R.id.verRegistro:
 
-                if (Clientes.size() >0){
-                    intent = new Intent(getApplicationContext(), Registro_Credito.class);
-                    intent.putStringArrayListExtra("nombreClientes", nombreClientes());
-                    startActivityForResult(intent,2);
+                if (Clientes.size() >0) {
+
+                    ArrayList<VerPrestamo> listprestamo = prestamosvisibles();
+                    if (listprestamo.size()>0){
+                        intent = new Intent(getApplicationContext(), Ver_Prestamos.class);
+                        intent.putParcelableArrayListExtra("Prestamos", listprestamo);
+                        startActivity(intent);
+                    }else {
+                        TVLog.append(getResources().getString(R.string.ceroPrestamos) + "\n");
+                    }
                 }else {
-                    TVLog.append(getResources().getString(R.string.ceroClientes)+"\n");
+                    TVLog.append(getResources().getString(R.string.ceroClientes) + "\n");
                 }
                 break;
 
@@ -125,13 +131,10 @@ public class MainActivity extends AppCompatActivity {
                             TVLog.append(getResources().getString(R.string.ingresoPrestamo)+"\n");
                         break;
                     case 3:
+
                         List<Cliente> tempclientes = data.getParcelableArrayListExtra("Clientes");
                         Clientes = new ArrayList<>(tempclientes);
-                        if (data.getIntExtra("prestamo",0)>0){
-                            for (int i =0; i <data.getIntExtra("prestamo",0); i++){
-                                TVLog.append(getResources().getString(R.string.ingresoPrestamo)+"\n");
-                            }
-                        }
+
                      break;
                 }
             }else {

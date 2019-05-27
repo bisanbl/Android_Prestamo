@@ -123,7 +123,7 @@ public class ListaClientes extends AppCompatActivity {
     public void onBackPressed() {
         Intent returnIntent = new Intent();
 
-            returnIntent.putParcelableArrayListExtra("Cliente", (ArrayList<? extends Parcelable>) Clientes);
+            returnIntent.putParcelableArrayListExtra("Clientes", (ArrayList<? extends Parcelable>) Clientes);
             setResult(Activity.RESULT_OK,returnIntent);
 
         super.onBackPressed();

@@ -15,11 +15,11 @@ public class Prestamo implements Parcelable {
 
 
 
-    Float getMonto(){
+    float getMonto(){
         return monto;
     }
 
-    Float getInteres(){
+    float getInteres(){
         return interes;
     }
 

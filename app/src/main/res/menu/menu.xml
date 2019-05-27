@@ -2,12 +2,12 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nuevoRegistro"
+        android:id="@+id/nuevoCliente"
         android:icon="@drawable/ic_person_add_black_24dp"
         android:title="@string/nuevo"
         app:showAsAction="always" />
     <item
-        android:id="@+id/nuevoCliente"
+        android:id="@+id/verRegistro"
         android:icon="@drawable/ic_monetization_on_black_24dp"
         android:title=""
         app:showAsAction="always" />
