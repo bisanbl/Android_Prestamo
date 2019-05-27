@@ -68,24 +68,16 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
                     onMyAdapterClickListener.onDeleteClicked(i);
                 }
             });
+
+            TEXTLasname.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onMyAdapterClickListener.onDetailClicked(i);
+                }
+            });
         }
 
-       /* @Override
-        public void onClick(View v) {
-            switch (v.getId()){
-                case R.id.BTNEdit:
 
-
-                    Intent intent = new Intent(context,RegistroCliente.class);
-                    intent.putExtra("Cliente",Clientes.get(cln));
-                    ((Activity) context).startActivityForResult(intent, cln);
-                    break;
-
-                case R.id.BTNDelete:
-
-                    break;
-            }
-        }*/
     }
 
     @NonNull

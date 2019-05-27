@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.ViewDebug;
 
 import java.util.ArrayList;
@@ -69,11 +72,22 @@ public class ListaClientes extends AppCompatActivity {
                     alertDialog.show();
 
                 }
-            });
+
+                 @Override
+                 public void onDetailClicked(int post) {
+                    Intent intent;
+                     intent = new Intent(getApplicationContext(), Detalle_Clientes.class);
+                     intent.putExtra("Cliente",Clientes.get(post));
+                     intent.putExtra("index",post);
+                     startActivityForResult(intent, 2);
+                 }
+             });
              recyclerView.setAdapter(clienteAdapter);
         }
 
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -83,6 +97,11 @@ public class ListaClientes extends AppCompatActivity {
                 switch(requestCode){
                     case 1:
                         Snackbar.make(findViewById(android.R.id.content),"Actualizando Cliente",Snackbar.LENGTH_LONG).show();
+                        Clientes.set(data.getIntExtra("index",0),(Cliente) data.getParcelableExtra("Cliente"));
+                        clienteAdapter.Clientes.set(data.getIntExtra("index",0),(Cliente) data.getParcelableExtra("Cliente"));
+                        clienteAdapter.notifyDataSetChanged();
+                        break;
+                    case 2:
                         Clientes.set(data.getIntExtra("index",0),(Cliente) data.getParcelableExtra("Cliente"));
                         clienteAdapter.Clientes.set(data.getIntExtra("index",0),(Cliente) data.getParcelableExtra("Cliente"));
                         clienteAdapter.notifyDataSetChanged();
@@ -98,5 +117,15 @@ public class ListaClientes extends AppCompatActivity {
         }catch (Exception e){
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent returnIntent = new Intent();
+
+            returnIntent.putParcelableArrayListExtra("Cliente", (ArrayList<? extends Parcelable>) Clientes);
+            setResult(Activity.RESULT_OK,returnIntent);
+
+        super.onBackPressed();
     }
 }

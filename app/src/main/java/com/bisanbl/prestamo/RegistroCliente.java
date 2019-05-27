@@ -2,10 +2,13 @@ package com.bisanbl.prestamo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,9 +43,6 @@ public class RegistroCliente extends AppCompatActivity {
         ETocupacion = findViewById(R.id.ETVOcupacion);
         ETcedula = findViewById(R.id.ETVCedula);
 
-
-        final Button BTNCancelar = findViewById(R.id.BTAnterior);
-        final Button BTNGuardar = findViewById(R.id.BTSiguiente);
 
         if (getIntent().getExtras() != null){
             Cliente = getIntent().getParcelableExtra("Cliente");
@@ -91,11 +91,20 @@ public class RegistroCliente extends AppCompatActivity {
             }
         });
 
-        BTNGuardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.registromenu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.guardarmenu:
                 if (!validarActivity(ETnombre, ETdireccion, ETTelefono, ETcedula)) {
-                    Snackbar.make(v, getResources().getString(R.string.ErrorBTN),Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(findViewById(android.R.id.content), getResources().getString(R.string.ErrorBTN),Snackbar.LENGTH_LONG).show();
                 } else {
                     Cliente cliente = new Cliente();
                     cliente.setNombre(ETnombre.getText().toString());
@@ -115,20 +124,15 @@ public class RegistroCliente extends AppCompatActivity {
                     setResult(Activity.RESULT_OK,returnIntent);
                     finish();
                 }
+                break;
 
-            }
-
-        });
-
-        BTNCancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.cancelarmenu:
                 Intent returnIntent = new Intent();
                 setResult(Activity.RESULT_CANCELED,returnIntent);
                 finish();
-
-            }
-        });
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     void cargarDatos(){

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,29 +26,38 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Registro_Credito extends AppCompatActivity {
+    TextView TVfechainicial;
+    TextView TVfechafin;
+    TextView TVmonto;
+    TextView TVmes;
+
+    EditText ETplazo;
+    EditText ETmonto;
+
+    Spinner SanombreCliente;
+    Spinner Sainteres;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro__credito);
 
-        final TextView TVfechainicial = findViewById(R.id.TVFechaInicialM);
-        final TextView TVfechafin = findViewById(R.id.TVFechaFinM);
-        final TextView TVmonto = findViewById(R.id.TVMontoPagarM);
-        final TextView TVmes = findViewById(R.id.TVMontomesM);
+         TVfechainicial = findViewById(R.id.TVFechaInicialM);
+         TVfechafin = findViewById(R.id.TVFechaFinM);
+         TVmonto = findViewById(R.id.TVMontoPagarM);
+         TVmes = findViewById(R.id.TVMontomesM);
 
-        final EditText ETplazo = findViewById(R.id.ETVPlazo);
-        final EditText ETmonto = findViewById(R.id.ETVMonton);
+         ETplazo = findViewById(R.id.ETVPlazo);
+         ETmonto = findViewById(R.id.ETVMonton);
 
-        final Spinner SanombreCliente = findViewById(R.id.TVNombreCliente);
-        final Spinner Sainteres = findViewById(R.id.ETVinteres);
+         SanombreCliente = findViewById(R.id.TVNombreCliente);
+         Sainteres = findViewById(R.id.ETVinteres);
 
         final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         final DecimalFormat dosDecimales = new DecimalFormat("0.##");
         final Date date = new Date();
 
-        Button BTNGuardar = findViewById(R.id.BTSiguiente);
-        Button BTNCancelar = findViewById(R.id.BTAnterior);
+
 
         ArrayList<String> nombreClientes;
 
@@ -186,9 +197,22 @@ public class Registro_Credito extends AppCompatActivity {
             }
         });
 
-        BTNGuardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
+
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.registromenu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.guardarmenu:
                 if (!TextUtils.isEmpty(TVfechafin.getText().toString())) {
                     Prestamo prestamo = new Prestamo();
                     prestamo.setMonto(Float.parseFloat(ETmonto.getText().toString().replace(',','.').trim()));
@@ -208,21 +232,16 @@ public class Registro_Credito extends AppCompatActivity {
 
                     //Snackbar.make(v, getResources().getString(R.string.gracias),Snackbar.LENGTH_LONG).show();
                 }else
-                    Snackbar.make(v, getResources().getString(R.string.ErrorBTN),Snackbar.LENGTH_LONG).show();
-            }
-        });
+                    Snackbar.make(findViewById(android.R.id.content), getResources().getString(R.string.ErrorBTN),Snackbar.LENGTH_LONG).show();
+                break;
 
-        BTNCancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.cancelarmenu:
                 Intent returnIntent = new Intent();
                 setResult(Activity.RESULT_CANCELED,returnIntent);
                 finish();
-            }
-        });
-
-
-
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     // funcion devuelve 0 si ha ocurrido un ERROR, en caso contrario devuelve el total del financiamiento
