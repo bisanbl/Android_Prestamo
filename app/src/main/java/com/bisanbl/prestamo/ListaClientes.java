@@ -83,6 +83,8 @@ public class ListaClientes extends AppCompatActivity {
                  }
              });
              recyclerView.setAdapter(clienteAdapter);
+            Snackbar.make(findViewById(android.R.id.content),"Visualizar los Clientes",Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(findViewById(android.R.id.content),Integer.toString(Clientes.size()),Snackbar.LENGTH_SHORT).show();
         }
 
     }
