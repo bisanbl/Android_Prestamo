@@ -142,9 +142,6 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         TVLog.append(getResources().getString(R.string.cancelCliente)  +"\n");
                         break;
-                    case 2:
-                        TVLog.append(getResources().getString(R.string.cancelPrestamo) + "\n");
-                        break;
                 }
             }
         }catch (Exception e){
