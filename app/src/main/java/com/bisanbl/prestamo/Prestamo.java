@@ -1,9 +1,18 @@
 package com.bisanbl.prestamo;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.PrimaryKey;
 
-public class Prestamo implements Parcelable {
+import static android.arch.persistence.room.ForeignKey.CASCADE;
+import static android.arch.persistence.room.ForeignKey.RESTRICT;
+
+@Entity(foreignKeys = @ForeignKey(entity = Clase.class,
+        childColumns = "id_Cliente",
+        parentColumns = "_ id",
+        onDelete = CASCADE,
+        onUpdate = RESTRICT))
+public class Prestamo  {
 
     private float monto;
     private float interes;
@@ -12,6 +21,7 @@ public class Prestamo implements Parcelable {
     private String fechafin;
     private float total;
     private float cuota;
+    private int id_Cliente;
 
 
 
@@ -74,55 +84,5 @@ public class Prestamo implements Parcelable {
 
     }
 
-    public Prestamo(float monto, float interes, int plazo, String fechainicio, String fechafin, float total, float cuota) {
-        this.monto = monto;
-        this.interes = interes;
-        this.plazo = plazo;
-        this.fechainicio = fechainicio;
-        this.fechafin = fechafin;
-        this.total = total;
-        this.cuota = cuota;
-    }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeFloat(monto);
-        dest.writeFloat(interes);
-        dest.writeInt(plazo);
-        dest.writeString(fechainicio);
-        dest.writeString(fechafin);
-        dest.writeFloat(total);
-        dest.writeFloat(cuota);
-
-    }
-
-    private void readFromParcel(Parcel in){
-        monto = in.readFloat();
-        interes = in.readFloat();
-        plazo = in.readInt();
-        fechainicio = in.readString();
-        fechafin = in.readString();
-        total = in.readFloat();
-        cuota = in.readFloat();
-    }
-
-    public Prestamo(Parcel in) {
-        readFromParcel(in);
-    }
-
-    public  static  final  Creator<Prestamo> CREATOR = new Creator<Prestamo>(){
-        public Prestamo createFromParcel(Parcel in){
-            return new Prestamo(in);
-        }
-
-        public Prestamo[] newArray (int size){
-            return new Prestamo[size];
-        }
-    };
 }

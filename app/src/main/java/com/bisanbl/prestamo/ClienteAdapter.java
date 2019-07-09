@@ -1,9 +1,6 @@
 package com.bisanbl.prestamo;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.bisanbl.prestamo.obj.Cliente;
+
 import java.util.List;
 
 public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHolderCliente> {

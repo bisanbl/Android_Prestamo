@@ -1,5 +1,7 @@
 package com.bisanbl.prestamo;
 
+
+
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -13,12 +15,15 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Switch;
 import android.widget.TextView;
+
+import com.bisanbl.prestamo.obj.Cliente;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+
 
 public class MainActivity extends AppCompatActivity {
     List<Cliente> Clientes = new ArrayList<>();

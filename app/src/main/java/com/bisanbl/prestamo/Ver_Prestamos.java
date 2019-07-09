@@ -25,6 +25,7 @@ public class Ver_Prestamos extends AppCompatActivity {
             Prestamos = getIntent().getParcelableArrayListExtra("Prestamos");
             ListView listView = findViewById(R.id.ListPrestamos);
             PrestamosAdapter prestamosAdapter = new PrestamosAdapter(this,Prestamos);
+            Prestamos.get(1).
 
             listView.setAdapter(prestamosAdapter);
             Snackbar.make(findViewById(android.R.id.content),"Ver prestamos",Snackbar.LENGTH_LONG).show();
